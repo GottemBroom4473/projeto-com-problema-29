@@ -7,8 +7,9 @@ var engine, world;
 var holder,ball,ground;
 var stand1,stand2;
 var ball;
-var slingShot;
+var slingshot;
 var polygon_img;
+
 function preload(){
   polygon_img=loadImage("polygon.png");
 }
@@ -21,9 +22,7 @@ function setup() {
   stand1 = new Stand(390,300,250,10);
   stand2 = new Stand(700,200,200,10);
  
-  //criando o poligon
-  poligon = Bodies.circle(50,200,20);
-  World.add(world,poligon);
+
 
   //slingShot = new slingShot(this.poligon,{x:100,y:200});
 
@@ -64,6 +63,8 @@ function setup() {
   bloco8 = new Block(730,135,30,40);
   //parte do topo
   bloco9 = new Block(700,95,30,40);
+
+  slingshot = new slingShot(poligon.body,{x:40,y:100});
 }
 function draw() {
   background(56,44,44); 
@@ -73,7 +74,8 @@ function draw() {
   
   imageMode(CENTER);
   image(polygon_img,poligon.position.x,poligon.position.y,40,40);
-  
+
+
   ground.display();
   stand1.display();
   stand2.display();
@@ -118,5 +120,5 @@ function draw() {
   fill("turquoise");
   bloco9.display();
 
-  
+  slingshot.display();
 }

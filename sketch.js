@@ -71,7 +71,9 @@ function draw() {
   textSize(20);
   fill("lightyellow");
   
-
+  imageMode(CENTER);
+  image(polygon_img,poligon.position.x,poligon.position.y,40,40);
+  
   ground.display();
   stand1.display();
   stand2.display();

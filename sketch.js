@@ -7,7 +7,7 @@ var engine, world;
 var holder,ball,ground;
 var stand1,stand2;
 var ball;
-var slingshot;
+//var slingshot;
 var polygon_img;
 
 function preload(){
@@ -22,9 +22,10 @@ function setup() {
   stand1 = new Stand(390,300,250,10);
   stand2 = new Stand(700,200,200,10);
  
+  poligon = Bodies.circle(50,200,20);
+  World.add(world,poligon);
 
-
-  //slingShot = new slingShot(this.poligon,{x:100,y:200});
+  slingshot = new slingShot(this.poligon,{x:100,y:200});
 
   //level one
   block1 = new Block(300,275,30,40);
@@ -64,7 +65,7 @@ function setup() {
   //parte do topo
   bloco9 = new Block(700,95,30,40);
 
-  slingshot = new slingShot(poligon.body,{x:40,y:100});
+  //slingshot = new slingShot(poligon.body,{x:40,y:100});
 }
 function draw() {
   background(56,44,44); 
@@ -121,4 +122,11 @@ function draw() {
   bloco9.display();
 
   slingshot.display();
+}
+function mouseDragged(){
+Matter.Body.setPosition(poligon.body,{x:20,y:100});
+}
+
+function mouseReleased(){
+poligon.fly();
 }
